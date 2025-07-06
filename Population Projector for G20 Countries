@@ -1,1 +1,58 @@
+#basic flask layout will work on it more
+from flask import Flask, render_template
 
+app = Flask(__name__)
+
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/bruh")
+def secondpage():
+    
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+index.html
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+    <form action="/bruh">
+        <button type="submit">bruh</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+bruh.html
+
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bruh Page</title>
+</head>
+<body>
+    <h1>bruh</h1>
+    <a href="/">Back to home</a>
+</body>
+</html>
