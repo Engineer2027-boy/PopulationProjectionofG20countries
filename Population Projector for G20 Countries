@@ -56,3 +56,31 @@ Edit
     <a href="/">Back to home</a>
 </body>
 </html>
+
+
+
+
+#Data decomposition code
+
+from statsmodels.tsa.seasonal import seasonal_decompose
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+dates = pd.date_range(start='2023-01-01', periods=100, freq='D')
+
+
+data = np.random.randn(100).cumsum()
+
+# Create a time series
+ts = pd.Series(data, index=dates)
+
+# Display first 5 rows
+print(ts.head())
+
+
+result = seasonal_decompose(ts, model='additive', period=30)
+result.plot()
+plt.show()
+
