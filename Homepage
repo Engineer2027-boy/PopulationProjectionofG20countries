@@ -1,1 +1,143 @@
+#Homepage
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
 
+    .top-block {
+      width: 100%;
+      height: 111px;
+      background-color: #554B4B;
+      position: relative;
+    }
+
+    .top-right-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 209px;
+      height: 111px;
+    }
+
+    .second-block {
+      width: 100%;
+      height: 54px;  
+      background-color: #472B1E;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px; 
+      padding-left: 20px;
+    }
+
+    .menu-button {
+      background-color: #472B1E;
+      color: #FFFFFF;  /* text color matches bar */
+      font-weight: bold;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .menu-button:hover {
+      opacity: 0.9;
+    }
+    .bottom-block {
+      width: 100%;
+      height: 111px;
+      background-color: #2C2626;
+      margin-top : 100px;
+      position: relative;
+    }
+    .bottom-right{
+      position : absolute;
+      bottom : 20px;
+      right : 20px;
+      color : #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-block">
+    <img src="{{ url_for('static', filename='images/image1.png') }}"
+         alt="" class="top-right-image">
+  </div>
+
+  <div class="second-block">
+    <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Home</button>
+    <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Population Projections</button>
+    <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Methodology</button>
+  </div>
+  <h1>Why does Population Matter ? </h1>
+  <h7>The economic and geopolitical situation of a country is very much dependent upon it’s population and demographics of that population.A country’s in order to fulfill it’s
+  geopolitical ambitions needs a young population large enough to maintain a modern military and for it’s economic ambitions too a country needs a dynamic, productive and
+  innovative workforce which  simply means having a lot of young people in the workforce as they are the main drivers of innovation in a modern economy.During the 1960s the idea 
+  that the world is overpopulated was the dominant thought following  Paul R. Ehrlich’s famous book “The  population bomb” which predicted mass famines and starvation is what 
+  awaits the human species if don’t find some way to control our numbers.The vision for future envisioned in Paul R.Ehrlich’s book didn’t  come to life largely thanks to the green
+  revolutions which allowed us to produce enough food to sustain  the growing numbers of humans.Alongside the green revolution the rate at which the human population grows has 
+  also shrunk from women having on an average of 5.00 children in 1960 to  having just 2.2 in 2024.Many factors are responsible for the decline increase in women’s education, 
+  healthcare innovation, availability of contraceptives, abortion alongside many positive social changes regarding women’s perceived role in societies.In modern times in some
+  <h10>countries the TFR(total fertility rate) has dropped to such lows that now countries are now struggling to find ways to reverse these trends.</h7>
+
+  <h1>Overpopulation or underpopulation which is the real problem?</h1>
+<h7>Elon musk in his conference talk with  jack ma said “Most people think we have too many people on the planet, but actually, this is an outdated view, the biggest issue in 20 
+years will be   population collapse. Not explosion. Collapse.”Again those are quite the words coming from one of the wealthiest men on the planets said to have fathered who himself 
+have fathered 14 children,ofcourse it’s not difficult to understand where his concerns are coming from the total fertility rate of pretty much every developed country except for israel 
+has been well below the 2.1 required to maintain a steady population.The area worst hit by the crisis seems to be east asia with countries like south korea at 0.78, japan at 1.15, 
+china at 1.00.So now is it time  we stopped worrying about overpopulation now and start tackling underpopulation problem, again the answer depends upon the region of the world you 
+live in.In most developed countries low birth rates and under population seems to be problem while at the same time there are till areas in Asia and Africa where overpopulation 
+till seems to be an issue.It is estimated that by the end of century if the current trend continue there will be more people in Niger than in China.The answer seems to be both overpopulation and underpopulation are both problems and the problem which different governments need to worry about varies depending on the economy , geopolitics and geography 
+of that particular nation.</h7>
+
+<h1>Economic Impact</h1>
+<h7>The population and demography of a particular country has a vast impact on it’s economy.The main case study that’s  generally done on the economic impact of an aging population 
+is the Japanese economy that has remained stagnant since the 1990s after it’s big boom in the 1980s and pretty much every reputable economist considers Japan’s aging population as 
+one of the major factors.As young people are the  major drivers of innovation and dynamism in an economy aside from a stagnant economy, an economy that is not very innovative is 
+also a problem that generally seems to follow the greying of the population in a country.The ratio of retirees and working age population is also a major cause of concern as old 
+people very much depend upon the young population of a country not just for care but also for retirement funds and social security, as the number of senior citizens in a country 
+increase a country will need to tax it’s working age population more and more to maintain services essential to the well being of the retiree population.</h7>
+
+<h7>On other side of this coin a country’s population growing too fast in not a boon on it’s  economy either.Countries in Sub-Saharan Africa are the perfect example of this due 
+to high fertility rates their educational facilities, hospitals and various other essential social services are under constant strain and unemployment and brain drain are 
+also major problems.</h7>
+
+<h7>The way to deal with these problems are highly debatable depending upon the political, economic and social leanings of the individuals still I am offering some basic solutions 
+that seem to be agreed upon by pretty much everyone.</h7>
+
+<h7>Solutions for dealing with underpopulation:
+1.Taking in immigrants from developed countries to cope with labour shortages.
+2.Using automation to automate key sectors entirely.
+3.Making childcare and parenting more affordable.</h7>
+
+<h7>Solutions for dealing with overpopulation:
+1.Invest heavily in women’s education and in improvement in bringing more women into the workforce.
+2.Promote contraceptives and age appropriate sex education.
+3.Encourage your population to delay marriage and childbirth and focus more in their careers.</h7>
+
+
+<h1>Geopolitical Impact</h1>
+<h7>The geopolitical impact of an aging population cannot be overstated even with advancement in automation most modern militaries still need fresh recruits which just means fresh 
+supply of young people every year in order to project strength on the geopolitical arena.One of the main case studies for this topic has been North Korea and South Korea for a long 
+time now South korea has been the wealthier, more populated and the more successful of the two Koreas it’s population at 51.7 million compared to 26.7 million population of it’s 
+northern counterpart,But the difference arises in their respective tfr’s an the current tfr of South Korea is 0.78 compared to the North’s 1.79 so over a large period of time the  population of the North will takeover that of the South which will spell many geopolitical issues for South Korea which will be incapable of maintaining a conventional modern military capable of deterring it’s northern neighbor.</h7>
+
+<h1>What is the G20?</h1>
+<h7>The G20 (Group of Twenty) is an international forum of 19 countries and the European Union that works together to address major issues related to the global economy.This 
+website will focus on the population projections of the G20 countries as when combined the various nations of G20 countries represent about  80% of global GDP and two-thirds 
+of the world’s population.</h7>
+
+
+<div class="bottom-block">
+<p class="bottom-right">*The copyright to this website solely belongs to Ayush Aditya and any reproduction in part of full will have severe consequence </p>
+</div>
+
+</body>
+</html>
