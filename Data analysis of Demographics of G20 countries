@@ -1,7 +1,0 @@
-
-#the widening fertility gap between China and India showing China's faster economic growth 
-import pandas as pd
-x = pd.read_excel("Demographics_of_G20_Nations.xlsx", sheet_name= "Sheet3")
-
-y = x[x["Year"] < 1977]
-print(y[["Year", "China_Fertility", "India_Fertility"]])
