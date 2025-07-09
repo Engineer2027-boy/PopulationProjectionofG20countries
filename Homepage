@@ -63,6 +63,10 @@
       right : 20px;
       color : #FFFFFF;
     }
+    .bottom-image{
+     display : block;
+     magin : 40px auto;
+    }
   </style>
 </head>
 <body>
@@ -133,6 +137,9 @@ northern counterpart,But the difference arises in their respective tfr’s an th
 <h7>The G20 (Group of Twenty) is an international forum of 19 countries and the European Union that works together to address major issues related to the global economy.This 
 website will focus on the population projections of the G20 countries as when combined the various nations of G20 countries represent about  80% of global GDP and two-thirds 
 of the world’s population.</h7>
+
+<img src="{{ url_for('static', filename='images/Screenshot (194).png') }}"
+         alt="A map of G20 countries" class = "bottom-image">
 
 
 <div class="bottom-block">
