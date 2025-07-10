@@ -1,0 +1,45 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+file = pd.read_excel("C:\\Users\\AYUSH ADITYA\\Desktop\\Data Science Documents\\Demographics_of_G20_Nations.xlsx",
+                     sheet_name="Sheet3")
+
+n = 1
+Index = ['USA', 'China', 'India', 'Japan', 'SouthKorea', 'Russia', 'Canada', 'Indonesia', 'Argentina', 'Germany',
+         'France', 'UK', 'SaudiArabia', 'Brazil', 'Mexico', 'SouthAfrica', 'Italy', 'Turkey', 'Australia']
+
+while n == 1:
+    print("\nChoose a country to project population:")
+    for i, country in enumerate(Index, start=1):
+        print(f"{i}.{country}")
+    print("20.Exit")
+
+    co = int(input("Enter the number for the country: "))
+
+    if co == 20:
+        n = 0
+    elif 1 <= co <= 19:
+        selected_country = Index[co - 1]
+        column = selected_country + "_Population"
+        x = file["Year"].to_numpy()
+        y = file[column].to_numpy()
+
+        # Convert population values to billions or millions
+        if selected_country in ['India', 'China']:
+            y_converted = y / 1_000_000_000
+            y_label = "Population (Billions)"
+        else:
+            y_converted = y / 1_000_000
+            y_label = "Population (Millions)"
+
+        plt.plot(x, y_converted, linestyle="-", color="blue", label=selected_country)
+        plt.xlabel("Year")
+        plt.ylabel(y_label)
+        plt.title(f"{selected_country} Population Trend")
+        plt.grid(True)
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+    else:
+        print("Invalid option. Please choose a number from 1 to 20.")
