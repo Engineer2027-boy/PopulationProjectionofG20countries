@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+
+    .top-block {
+      width: 100%;
+      height: 111px;
+      background-color: #554B4B;
+      position: relative;
+    }
+
+    .top-right-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 209px;
+      height: 111px;
+    }
+
+    .second-block {
+      width: 100%;
+      height: 54px;  
+      background-color: #472B1E;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px; 
+      padding-left: 20px;
+    }
+
+    .menu-button {
+      background-color: #472B1E;
+      color: #FFFFFF;  /* text color matches bar */
+      font-weight: bold;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .menu-button:hover {
+      opacity: 0.9;
+    }
+    .bottom-block {
+      width: 100%;
+      height: 111px;
+      background-color: #2C2626;
+      margin-top : 100px;
+      position: relative;
+    }
+    .bottom-right{
+      position : absolute;
+      bottom : 20px;
+      right : 20px;
+      color : #FFFFFF;
+    }
+    .bottom-image{
+      display : block;
+      margin : 40px auto;
+    }
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #495057;
+    min-width: 160px;
+    z-index: 2; /* Ensures dropdown displays above other elements */
+    }
+
+    .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #6c757d;
+    }
+    .num-box{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top-block">
+    <img src="{{ url_for('static', filename='images/image1.png') }}"
+         alt="G20 Logo" class="top-right-image">
+  </div>
+
+  <div class="second-block">
+    <form action="/" method="get" style="display:inline;">
+            <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Homepage</button>
+    </form>
+    <form action="/p" method="get" style="display:inline;">
+            <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Population Projections</button>
+    </form>
+     <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Methodology</button>
+  </div>
+  <div style="padding: 20px;">
+  <label for="year" style="font-size: 18px; font-weight: bold;">Select Year</label>
+  <select id="year" name = "year" style="font-size: 18px;">
+  {% for y in range(2026, 2085)%}
+      <option value="{{y}}">{{y}}</option>
+  {% endfor %}
+  </select>
+  <label for="country" style="font-size: 18px; font-weight: bold;">Select Country:</label>
+  <select id="country" name="country" style="font-size: 18px; padding: 5px;">
+    {% set g20_countries = ['Argentina', 'Australia', 'Brazil', 'Canada', 'China', 'France',
+                            'Germany', 'India', 'Indonesia', 'Italy', 'Japan', 'Mexico',
+                            'Russia', 'Saudi Arabia', 'South Africa', 'South Korea',
+                            'Turkey', 'United Kingdom', 'United States'] %}
+    {% for c in g20_countries %}
+      <option value="{{ c }}">{{ c }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div style="margin-top: 30px;">
+  <label for="population" style="font-size: 18px; font-weight: bold;">Population:</label>
+  <div class = "num-box" id="population">
+    <!-- You can insert the population value here dynamically later -->
+  </div>
+</div>
+
+
+
+
+<div class="bottom-block">
+<p class="bottom-right">*The copyright to this website solely belongs to Ayush Aditya and any reproduction in part of full will have severe consequence </p>
+</div>
+
+</body>
+</html>
