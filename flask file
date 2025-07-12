@@ -1,8 +1,20 @@
-#flask section
 # basic flask layout will work on it more
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import io
+import base64
 
 app = Flask(__name__)
+
+
+Index = ['USA', 'China', 'India', 'Japan', 'SouthKorea', 'Russia', 'Canada', 'Indonesia', 'Argentina', 'Germany',
+         'France', 'UK', 'SaudiArabia', 'Brazil', 'Mexico', 'SouthAfrica', 'Italy', 'Turkey', 'Australia']
+
+
+file = pd.read_excel("C:\\Users\\AYUSH ADITYA\\Desktop\\Data Science Documents\\Demographics_of_G20_Nations.xlsx",
+                     sheet_name="Sheet3")
 
 
 @app.route("/")
@@ -10,8 +22,49 @@ def home():
     return render_template("homepage.html")
 
 
+@app.route("/p", methods=["GET", "POST"])
+def population_projection():
+    selected_country = None
+    image = None
+
+    if request.method == "POST":
+        selected_country = request.form.get("country")
+        if selected_country in Index:
+            column = selected_country + "_Population"
+            x = file["Year"].to_numpy()
+            y = file[column].to_numpy()
+
+            if selected_country in ['India', 'China']:
+                y_converted = y / 1_000_000_000
+                y_label = "Population (Billions)"
+            else:
+                y_converted = y / 1_000_000
+                y_label = "Population (Millions)"
+
+            plt.figure(figsize=(6, 4))
+            plt.plot(x, y_converted, linestyle="-", color="blue", label=selected_country)
+            plt.xlabel("Year")
+            plt.ylabel(y_label)
+            plt.title(f"{selected_country} Population Trend")
+            plt.grid(True)
+            plt.legend()
+            plt.tight_layout()
+            buf = io.BytesIO()
+            plt.savefig(buf, format='png')
+            buf.seek(0)
+            image = base64.b64encode(buf.read()).decode('utf-8')
+            buf.close()
+            plt.close()
+
+    return render_template("population_projection.html",
+                           image=image,
+                           countries=Index,
+                           selected_country=selected_country)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
