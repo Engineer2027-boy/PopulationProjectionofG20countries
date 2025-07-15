@@ -2,43 +2,61 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Load Excel file
 file = pd.read_excel("C:\\Users\\AYUSH ADITYA\\Desktop\\Data Science Documents\\Demographics_of_G20_Nations.xlsx",
                      sheet_name="Sheet3")
 
-n = 1
-Index = ['USA', 'China', 'India', 'Japan', 'SouthKorea', 'Russia', 'Canada', 'Indonesia', 'Argentina', 'Germany',
-         'France', 'UK', 'SaudiArabia', 'Brazil', 'Mexico', 'SouthAfrica', 'Italy', 'Turkey', 'Australia']
+Index = ['USA', 'China', 'India', 'Japan', 'SouthKorea', 'Russia', 'Canada',
+         'Indonesia', 'Argentina', 'Germany', 'France', 'UK', 'SaudiArabia',
+         'Brazil', 'Mexico', 'SouthAfrica', 'Italy', 'Turkey', 'Australia']
 
-while n == 1:
+while True:
     print("\nChoose a country to project population:")
     for i, country in enumerate(Index, start=1):
-        print(f"{i}.{country}")
-    print("20.Exit")
+        print(f"{i}. {country}")
+    print("20. Exit")
 
     co = int(input("Enter the number for the country: "))
 
     if co == 20:
-        n = 0
+        break
     elif 1 <= co <= 19:
         selected_country = Index[co - 1]
         column = selected_country + "_Population"
-        x = file["Year"].to_numpy()
-        y = file[column].to_numpy()
 
-        # Convert population values to billions or millions
-        if selected_country in ['India', 'China']:
-            y_converted = y / 1_000_000_000
-            y_label = "Population (Billions)"
-        else:
-            y_converted = y / 1_000_000
-            y_label = "Population (Millions)"
+        # Extract data
+        years = file["Year"][24:].to_numpy()
+        population = file[column][24:].to_numpy()
 
-        plt.plot(x, y_converted, linestyle="-", color="blue", label=selected_country)
+        # Filter out NaNs
+        mask = ~np.isnan(population)
+        years = years[mask]
+        population = population[mask]
+
+        # Fit 2nd-degree polynomial: P(t) = a*t^2 + b*t + c
+        coeffs = np.polyfit(years, population, 2)
+        a, b, c = coeffs
+
+        # Predict from last year to 2050
+        future_years = np.arange(years[0], 2051)
+        projected_population = a * future_years**2 + b * future_years + c
+
+        # Plot
+        plt.figure(figsize=(10, 6))
+        plt.plot(future_years, projected_population, label="Projected Population", color='blue')
+        plt.scatter(years, population, color='red', label="Original Data", zorder=5)
+        plt.axvline(x=years[-1], linestyle="--", color='gray', label="Projection Start")
+        plt.title(f"Population Projection for {selected_country} (to 2050)")
         plt.xlabel("Year")
-        plt.ylabel(y_label)
-        plt.title(f"{selected_country} Population Trend")
+        plt.ylabel("Population (millions)")
         plt.grid(True)
         plt.legend()
+        plt.tight_layout()
+        plt.show()
+
+    else:
+        print("Invalid option. Please choose a number from 1 to 20.")
+
         plt.tight_layout()
         plt.show()
     else:
