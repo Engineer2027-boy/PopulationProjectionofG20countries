@@ -2,9 +2,8 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import io
-import base64
+import plotly.io as pio
+import plotly.graph_objects as go
 
 app = Flask(__name__)
 
@@ -28,9 +27,9 @@ def home():
 @app.route("/p", methods=["GET", "POST"])
 def population_projection():
     selected_country = None
-    image = None
-
+    graph_html = None
     if request.method == "POST":
+        selected_year = int(request.form.get("year"))
         selected_country = request.form.get("country")
         if selected_country in Index:
             index = 0
@@ -47,7 +46,8 @@ def population_projection():
             # Extract data
             years = file["Year"][index:].to_numpy()
             population = file[column][index:].to_numpy()
-
+            years1 = file["Year"].to_numpy()
+            population1 = file[column].to_numpy()
             # Filter out NaNs and get data up to 2024
             mask = (~np.isnan(population)) & (years <= 2024)
             years = years[mask]
@@ -58,32 +58,57 @@ def population_projection():
             beta = np.linalg.solve(X.T @ X, X.T @ Y).flatten()
             a, b, c = beta
             # Create ranges for plotting
-            historical_years = years[years <= 2024]
-            historical_pop = population[years <= 2024]
-            projection_years = np.arange(2024, 2051)
+            historical_years = years1[years1 <= 2024]
+            historical_pop = population1[years1 <= 2024]
+            projection_years = np.arange(2025, selected_year+1)
             projection_pop = a * projection_years ** 2 + b * projection_years + c
             # Plot
-            plt.figure(figsize=(10, 6))
-            # Solid line for historical data
-            plt.plot(historical_years, historical_pop, 'b-', linewidth=2, label="Actual Data")
-            # Dashed line for projection
-            plt.plot(projection_years, projection_pop, 'b-', linewidth=2, label="Projection")
-            # Mark the transition point
-            plt.scatter([2024], [a * 2024 ** 2 + b * 2024 + c], color='green', zorder=5)
-            plt.title(f"Population Projection for {selected_country}")
-            plt.xlabel("Year")
-            plt.ylabel("Population (millions)")
-            plt.grid(True)
-            plt.legend()
-            plt.tight_layout()
-            buf = io.BytesIO()
-            plt.savefig(buf, format='png')
-            buf.seek(0)
-            image = base64.b64encode(buf.read()).decode('utf-8')
-            buf.close()
-            plt.close()
+            # Create Plotly figure
+            fig = go.Figure()
 
-    return render_template("population_projection.html", image=image, countries=Index, selected_country=selected_country)
+            # Historical data
+            fig.add_trace(go.Scatter(
+                x=historical_years,
+                y=historical_pop,
+                mode='lines+markers',
+                name='Actual Data',
+                hovertemplate='Year: %{x}<br>Population: %{y:.2f}'
+            ))
+
+            # Projection data
+            fig.add_trace(go.Scatter(
+                x=projection_years,
+                y=projection_pop,
+                mode='lines+markers',
+                line=dict(dash='dash'),
+                name='Projection',
+                hovertemplate='Year: %{x}<br>Population: %{y:.2f}'
+            ))
+
+            # Transition marker at 2024
+            transition_point = a * 2024 ** 2 + b * 2024 + c
+            fig.add_trace(go.Scatter(
+                x=[2024],
+                y=[transition_point],
+                mode='markers',
+                marker=dict(color='green', size=10),
+                name='2024 Transition',
+                hovertemplate='Year: 2024<br>Population: %{y:.2f}'
+            ))
+
+            fig.update_layout(
+                title=f"Population Projection for {selected_country}",
+                xaxis_title='Year',
+                yaxis_title='Population (millions)',
+                hovermode='x unified',
+                template='plotly_white',
+                height=600
+            )
+
+            # Convert to HTML string
+            graph_html = pio.to_html(fig, full_html=False)
+
+    return render_template("population_projection.html", graph_html=graph_html, countries=Index, selected_country=selected_country)
 
 
 @app.route('/m')
@@ -93,17 +118,5 @@ def methodology():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
