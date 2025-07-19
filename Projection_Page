@@ -115,36 +115,47 @@
     <form action="/p" method="get" style="display:inline;">
             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Population Projections</button>
     </form>
-     <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Methodology</button>
+    <form action="/m" method="get" style="display:inline;">
+             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Methodology</button>
+    </form>
   </div>
   <div style="padding: 20px;">
+  <form method="POST" style="padding: 20px;">
   <label for="year" style="font-size: 18px; font-weight: bold;">Select Year</label>
   <select id="year" name = "year" style="font-size: 18px;">
-  {% for y in range(2026, 2085)%}
+  {% for y in range(2025, 2051)%}
       <option value="{{y}}">{{y}}</option>
   {% endfor %}
   </select>
-  <label for="country" style="font-size: 18px; font-weight: bold;">Select Country:</label>
+
+  <label for="country" style="font-size: 18px; font-weight: bold; padding : 5px;">Select Country:</label>
   <select id="country" name="country" style="font-size: 18px; padding: 5px;">
     {% set g20_countries = ['Argentina', 'Australia', 'Brazil', 'Canada', 'China', 'France',
                             'Germany', 'India', 'Indonesia', 'Italy', 'Japan', 'Mexico',
-                            'Russia', 'Saudi Arabia', 'South Africa', 'South Korea',
-                            'Turkey', 'United Kingdom', 'United States'] %}
+                            'Russia', 'SaudiArabia', 'SouthAfrica', 'SouthKorea',
+                            'Turkey', 'UK', 'USA'] %}
     {% for c in g20_countries %}
-      <option value="{{ c }}">{{ c }}</option>
+      <option value="{{ c }}" {% if selected_country == c %}selected{% endif %}>{{ c }}</option>
     {% endfor %}
   </select>
+
+  <button type="submit" class="menu-button" style="font-size: 18px; margin-left: 15px;">Show Graph</button>
+</form>
+
 </div>
-<div style="margin-top: 30px;">
+<div style="margin-top: 30px; margin-left: 40px;">
   <label for="population" style="font-size: 18px; font-weight: bold;">Population:</label>
   <div class = "num-box" id="population">
     <!-- You can insert the population value here dynamically later -->
   </div>
+  {% if graph_html %}
+<div style="margin-top: 40px;">
+  <h3 style="text-align:center;">Population Projection for {{ selected_country }}</h3>
+  <div>{{ graph_html | safe }}</div>
 </div>
+{% endif %}
 
-
-
-
+</div>
 <div class="bottom-block">
 <p class="bottom-right">*The copyright to this website solely belongs to Ayush Aditya and any reproduction in part of full will have severe consequence </p>
 </div>
