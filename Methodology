@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+
+    .top-block {
+      width: 100%;
+      height: 111px;
+      background-color: #554B4B;
+      position: relative;
+    }
+
+    .top-right-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 209px;
+      height: 111px;
+    }
+
+    .second-block {
+      width: 100%;
+      height: 54px;  
+      background-color: #472B1E;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px; 
+      padding-left: 20px;
+    }
+
+    .menu-button {
+      background-color: #472B1E;
+      color: #FFFFFF;  /* text color matches bar */
+      font-weight: bold;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .menu-button:hover {
+      opacity: 0.9;
+    }
+    .bottom-block {
+      width: 100%;
+      height: 111px;
+      background-color: #2C2626;
+      margin-top : 100px;
+      position: relative;
+    }
+    .bottom-right{
+      position : absolute;
+      bottom : 20px;
+      right : 20px;
+      color : #FFFFFF;
+    }
+    .bottom-image{
+      display : block;
+      margin : 40px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-block">
+    <img src="{{ url_for('static', filename='images/image1.png') }}"
+         alt="G20 Logo" class="top-right-image">
+  </div>
+
+  <div class="second-block">
+    <form action="/" method="get" style="display:inline;">
+            <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Homepage</button>
+    </form>
+    <form action="/p" method="get" style="display:inline;">
+            <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Population Projections</button>
+    </form>
+    <form action="/m" method="get" style="display:inline;">
+             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Methodology</button>
+    </form>
+    </div>
+<p>
+  The methodology I used to predict populations can be found here - 
+  <a href="{{ url_for('static', filename='docs/methodology.pdf') }}" download>Download PDF</a>
+</p>
+<p>For accessing the dataset I have used in this click here : <a href="{{ url_for('static', filename='docs/Demographics_of_G20_Nations.xlsx') }}" download>Download xlsx file</a> </p>
+<div class="bottom-block">
+<p class="bottom-right">*The copyright to this website solely belongs to Ayush Aditya and any reproduction in part of full will have severe consequence </p>
+</div>
+
+</body>
+</html>
 
