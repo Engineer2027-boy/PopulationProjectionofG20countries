@@ -73,7 +73,6 @@
     <img src="{{ url_for('static', filename='images/image1.png') }}"
          alt="G20 Logo" class="top-right-image">
   </div>
-
   <div class="second-block">
     <form action="/" method="get" style="display:inline;">
             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Homepage</button>
@@ -81,8 +80,12 @@
     <form action="/p" method="get" style="display:inline;">
             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Population Projections</button>
     </form>
-     <button class = "menu-button" style="font-size : 24px; font-weight : bold;">Methodology</button>
+    <form action="/m" method="get" style="display:inline;">
+             <button class = "menu-button" type="submit" style="font-size : 24px; font-weight : bold;">Methodology</button>
+    </form>
   </div>
+   <img src="{{ url_for('static', filename='images/Screenshot (194).png') }}"
+         alt="A map of G20 countries" class = "bottom-image">
   <h1>Why does Population Matter ? </h1>
   <h7>The economic and geopolitical situation of a country is very much dependent upon it’s population and demographics of that population.A country’s in order to fulfill it’s
   geopolitical ambitions needs a young population large enough to maintain a modern military and for it’s economic ambitions too a country needs a dynamic, productive and
@@ -92,7 +95,7 @@
   revolutions which allowed us to produce enough food to sustain  the growing numbers of humans.Alongside the green revolution the rate at which the human population grows has 
   also shrunk from women having on an average of 5.00 children in 1960 to  having just 2.2 in 2024.Many factors are responsible for the decline increase in women’s education, 
   healthcare innovation, availability of contraceptives, abortion alongside many positive social changes regarding women’s perceived role in societies.In modern times in some
-  <h10>countries the TFR(total fertility rate) has dropped to such lows that now countries are now struggling to find ways to reverse these trends.</h7>
+  countries the TFR(total fertility rate) has dropped to such lows that now countries are now struggling to find ways to reverse these trends.</h7>
 
   <h1>Overpopulation or underpopulation which is the real problem?</h1>
 <h7>Elon musk in his conference talk with  jack ma said “Most people think we have too many people on the planet, but actually, this is an outdated view, the biggest issue in 20 
@@ -112,7 +115,7 @@ also a problem that generally seems to follow the greying of the population in a
 people very much depend upon the young population of a country not just for care but also for retirement funds and social security, as the number of senior citizens in a country 
 increase a country will need to tax it’s working age population more and more to maintain services essential to the well being of the retiree population.</h7>
 
-<h7>On other side of this coin a country’s population growing too fast in not a boon on it’s  economy either.Countries in Sub-Saharan Africa are the perfect example of this due 
+<h7>On other side of this coin a country’s population growing too fast in not a boon on it’s economy either.Countries in Sub-Saharan Africa are the perfect example of this due 
 to high fertility rates their educational facilities, hospitals and various other essential social services are under constant strain and unemployment and brain drain are 
 also major problems.</h7>
 
@@ -140,10 +143,6 @@ northern counterpart,But the difference arises in their respective tfr’s an th
 <h7>The G20 (Group of Twenty) is an international forum of 19 countries and the European Union that works together to address major issues related to the global economy.This 
 website will focus on the population projections of the G20 countries as when combined the various nations of G20 countries represent about  80% of global GDP and two-thirds 
 of the world’s population.</h7>
-
-<img src="{{ url_for('static', filename='images/Screenshot (194).png') }}"
-         alt="A map of G20 countries" class = "bottom-image">
-
 
 <div class="bottom-block">
 <p class="bottom-right">*The copyright to this website solely belongs to Ayush Aditya and any reproduction in part of full will have severe consequence </p>
