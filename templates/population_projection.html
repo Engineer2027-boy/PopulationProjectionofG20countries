@@ -45,7 +45,6 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
     .menu-button:hover {
       opacity: 0.9;
     }
@@ -70,7 +69,6 @@
     position: relative;
     display: inline-block;
     }
-
     .dropdown-content {
     display: none;
     position: absolute;
@@ -85,7 +83,6 @@
     text-decoration: none;
     display: block;
     }
-
     .dropdown-content a:hover {
     background-color: #6c757d;
     }
@@ -124,11 +121,11 @@
   <label for="year" style="font-size: 18px; font-weight: bold;">Select Year</label>
   <select id="year" name = "year" style="font-size: 18px;">
   {% for y in range(2025, 2051)%}
-      <option value="{{y}}">{{y}}</option>
+      <option value="{{y}}" {% if selected_year|int == y %}selected{% endif %}>{{y}}</option>
   {% endfor %}
   </select>
 
-  <label for="country" style="font-size: 18px; font-weight: bold; padding : 5px;">Select Country:</label>
+  <label for="country" style="font-size: 18px; font-weight: bold; padding : 5px;">Select Country</label>
   <select id="country" name="country" style="font-size: 18px; padding: 5px;">
     {% set g20_countries = ['Argentina', 'Australia', 'Brazil', 'Canada', 'China', 'France',
                             'Germany', 'India', 'Indonesia', 'Italy', 'Japan', 'Mexico',
@@ -144,10 +141,7 @@
 
 </div>
 <div style="margin-top: 30px; margin-left: 40px;">
-  <label for="population" style="font-size: 18px; font-weight: bold;">Population:</label>
-  <div class = "num-box" id="population">
-    <!-- You can insert the population value here dynamically later -->
-  </div>
+
   {% if graph_html %}
 <div style="margin-top: 40px;">
   <h3 style="text-align:center;">Population Projection for {{ selected_country }}</h3>
