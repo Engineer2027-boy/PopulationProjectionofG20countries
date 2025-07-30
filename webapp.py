@@ -109,7 +109,7 @@ def population_projection():
             # Convert to HTML string
             graph_html = pio.to_html(fig, full_html=False)
 
-    return render_template("population_projection.html", graph_html=graph_html, countries=Index, selected_country=selected_country)
+    return render_template("population_projection.html", graph_html=graph_html, countries=Index, selected_country=selected_country, selected_year = selected_year)
 
 
 @app.route('/m')
