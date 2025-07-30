@@ -29,6 +29,7 @@ def home():
 def population_projection():
     selected_country = None
     graph_html = None
+    selected_year = None
     if request.method == "POST":
         selected_year = int(request.form.get("year"))
         selected_country = request.form.get("country")
