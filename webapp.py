@@ -12,7 +12,7 @@ Index = ['USA', 'China', 'India', 'Japan', 'SouthKorea', 'Russia', 'Canada', 'In
          'France', 'UK', 'SaudiArabia', 'Brazil', 'Mexico', 'SouthAfrica', 'Italy', 'Turkey', 'Australia']
 
 
-file = pd.read_excel("C:\\Users\\AYUSH ADITYA\\Desktop\\Data Science Documents\\Demographics_of_G20_Nations.xlsx",
+file = pd.read_excel("static/docs/Demographics_of_G20_Nations.xlsx",
                      sheet_name="Sheet3")
 
 year_start = [1.862, 1.5697, 3.58, 1.5, 1.3423, 2, 1.89, 2.41, 1.81, 2.17, 1.92, 1.68, 4.81, 2.4183, 2.72, 2.61,
