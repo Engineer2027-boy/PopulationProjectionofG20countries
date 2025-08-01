@@ -1,9 +1,8 @@
 Population Projection of G20 Countries
-______________________________________
 A webapp created using flask and HTML that projects the population of G20 countries from 1950 to 2050.The population for year 2025-2050 is caclulated by using linear algebra(Least square method).  
-
+__________________________
 Features 
-________
+
 The ability to choose the country whose projection you wish to be displayed.  
 •The ability to choose upto which time period you wish to see.  
 •A colorful graph that shows the population of the respective country you choose for the time period you choose.  
@@ -11,6 +10,7 @@ The ability to choose the country whose projection you wish to be displayed.
 •The data used for projections in .xlsx format is available for download.  
 •Deployed using railway.app
 
+____________________________
 Project Structure
 _________________
 ├── static/ # Static files (images, documents)  
@@ -28,10 +28,10 @@ _________________
 ├── README.md # (this file)  
 
 
-
+_________________________
 Author 
-______
 Ayush Aditya
+__________________________
 
 
 
