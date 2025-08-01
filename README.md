@@ -10,9 +10,9 @@ The ability to choose the country whose projection you wish to be displayed.
 •A methdology document from which you can understand the methodology used to predict populations is available for download.  
 •The data used for projections in .xlsx format is available for download.  
 •Deployed using railway.app
-__________________________________________________________________________________________________________________________________________
-Project Structure
 
+Project Structure
+_________________
 ├── static/ # Static files (images, documents)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── images/ App Screenshots  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──  docs/                  
@@ -30,9 +30,9 @@ Project Structure
 
 
 Author 
-
+______
 Ayush Aditya
-__________________________________________________________________________________________________________________________________________
+
 
 
 
