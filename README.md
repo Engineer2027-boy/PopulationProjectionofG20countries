@@ -14,11 +14,11 @@ The ability to choose the country whose projection you wish to be displayed.
 Project Structure
 
 ├── static/ # Static files (images, CSS)  
-│ └── images/ App Screenshots  
+ │ └── images/ App Screenshots  
 ├── templates/         #HTML files
-| └── homepage.html  
-| └── population_projection.html  
-| └── methodology.html  
+ | └── homepage.html  
+ | └── population_projection.html  
+ | └── methodology.html  
 ├── requirements.txt # Python dependencies  
 ├── runtime.txt # Runtime version  
 ├── webapp.py # Main Flask application  
