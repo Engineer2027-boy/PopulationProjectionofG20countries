@@ -15,10 +15,10 @@ Project Structure
 
 ├── static/ # Static files (images, CSS)  
 │ └── images/ App Screenshots  
-├── templates/ 
-  └── homepage.html
-  └── population_projection.html
-  └── methodology.html
+├── templates/         #HTML files
+  └── homepage.html  
+  └── population_projection.html  
+  └── methodology.html  
 ├── requirements.txt # Python dependencies  
 ├── runtime.txt # Runtime version  
 ├── webapp.py # Main Flask application  
