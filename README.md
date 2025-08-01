@@ -4,9 +4,9 @@ A webapp created using flask and HTML that projects the population of G20 countr
 
 Features : 
 
-.The ability to choose the country whose projection you wish to be displayed.  
-.The ability to choose upto which time period you wish to see.  
-.A colorful graph that shows the population of the respective country you choose for the time period you choose.  
-.A methdology document from which you can understand the methodology used to predict populations.  
-.The data used for projections in .xlsx format.  
+The ability to choose the country whose projection you wish to be displayed.  
+•The ability to choose upto which time period you wish to see.  
+•A colorful graph that shows the population of the respective country you choose for the time period you choose.  
+•A methdology document from which you can understand the methodology used to predict populations.  
+•The data used for projections in .xlsx format.  
 
