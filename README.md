@@ -13,9 +13,9 @@ __________________________
 Environment Varables
 •FLASK_ENV for successful deployment of flask file.
 __________________
-Deployment
-•Deployed using railways.app.
-href - https://web-production-682b.up.railway.app/
+Deployment  
+•Deployed using railways.app.  
+href - https://web-production-682b.up.railway.app/  
 ____________________________
 Project Structure
 _________________
