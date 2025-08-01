@@ -9,7 +9,13 @@ The ability to choose the country whose projection you wish to be displayed.
 •A methdology document from which you can understand the methodology used to predict populations is available for download.  
 •The data used for projections in .xlsx format is available for download.  
 •Deployed using railway.app
-
+__________________________
+Environment Varables
+•FLASK_ENV for successful deployment of flask file.
+__________________
+Deployment
+•Deployed using railways.app.
+href - https://web-production-682b.up.railway.app/
 ____________________________
 Project Structure
 _________________
