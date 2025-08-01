@@ -7,6 +7,7 @@ Features :
 The ability to choose the country whose projection you wish to be displayed.  
 •The ability to choose upto which time period you wish to see.  
 •A colorful graph that shows the population of the respective country you choose for the time period you choose.  
-•A methdology document from which you can understand the methodology used to predict populations.  
-•The data used for projections in .xlsx format.  
-
+•A methdology document from which you can understand the methodology used to predict populations is available for download.  
+•The data used for projections in .xlsx format is available for download.  
+•Deployed using railway.app
+________________________________________________________________________________________________________________________________
